@@ -1,0 +1,381 @@
+==================================================
+OPTION USED: -O0
+STATIC
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004454
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002310
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.001695
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004211
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002023
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.001747
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004398
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002915
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002152
+create_table search_directory remove_block search_directory remove_block search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.008188
+======================
+SHARED
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004172
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002130
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002152
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.007519
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002484
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.003351
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004550
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002569
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.003685
+create_table search_directory remove_block search_directory remove_block search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.009463
+==========================
+DYNAMIC
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.005656
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002251
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002159
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004207
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002715
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002039
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004645
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002567
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002163
+create_table search_directory remove_block search_directory remove_block search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.009267
+=================================================================================
+OPTION USED: -O1
+STATIC
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004553
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002488
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.001747
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004542
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002909
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.001772
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004513
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004957
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.003510
+create_table search_directory remove_block search_directory remove_block search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.010233
+================================
+SHARED
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004068
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002198
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.001731
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004958
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002289
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.001896
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004361
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.003452
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.001942
+create_table search_directory remove_block search_directory remove_block search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.009213
+================================
+DYNAMIC
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004047
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002707
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002451
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004835
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002253
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.003428
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.007043
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002802
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.001849
+create_table search_directory remove_block search_directory remove_block search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.010791
+===========================================================================================
+OPTION USED: -Os
+STATIC
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004236
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002152
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002200
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004998
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002222
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.001861
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.012969
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002333
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.001865
+create_table search_directory remove_block search_directory remove_block search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.011373
+==================================
+SHARED
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004626
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002683
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.001888
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004571
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002392
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.001950
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004536
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002316
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002244
+create_table search_directory remove_block search_directory remove_block search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.009418
+====================================
+DYNAMIC
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004298
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002288
+search_directory (without saving results) 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002074
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004133
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002604
+create_table search_directory 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002393
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.004828
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002233
+create_table search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.002043
+create_table search_directory remove_block search_directory remove_block search_directory remove_block 
+System time: 0.000000
+User time: 0.000000
+Real time: 0.010055

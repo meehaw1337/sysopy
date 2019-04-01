@@ -1,0 +1,4 @@
+banan 3
+/home/michalek/Pulpit/c/cw04/zad2/innybanan 4
+katalog/jeszczeinnybanan 2
+

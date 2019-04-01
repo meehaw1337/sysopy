@@ -1,0 +1,5 @@
+#!/bin/bash
+while [ True ]; do
+    date
+    sleep 2
+done

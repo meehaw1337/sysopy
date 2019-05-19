@@ -4,16 +4,43 @@
 #include <pthread.h> 
 #include <string.h>
 #include <signal.h>
+#include <math.h>
 
 #define BLOCK 1
 #define INTERLEAVED 2
 
 int **image_matrix;
-int **filter_matrix;
+double **filter_matrix;
+int **result_matrix;
 int image_width;
 int image_height;
 int max_pixel_value;
 int filter_size;
+
+
+int max(int a, int b){
+    if(a > b) return a;
+    else return b;
+}
+
+int min(int a, int b){
+    if(a > b) return b;
+    else return a;
+}
+
+int s(int x, int y){
+    int result = 0;
+    int i,j;
+    
+    for(i=0; i<filter_size; i++){
+        for(j=0; j<filter_size; j++){
+            printf("i:  %d,   j:  %d   \n", max(0, x - ceil(filter_size / 2) + i),max(0, y - ceil(filter_size / 2) + j));
+            result += image_matrix[ max(0, min(x - ceil(filter_size / 2) + i, image_height-1)) ][ max(0, min(y - ceil(filter_size / 2) + j, image_width-1)) ] * filter_matrix[i][j];
+        }
+    }
+
+    return result;
+}
 
 void allocate_image_matrix(){
     image_matrix = malloc( sizeof(int*) * image_height);
@@ -33,6 +60,16 @@ void allocate_filter_matrix(){
         filter_matrix[row] = malloc( sizeof(int) * filter_size);
 
     printf("Filter matrix allocated\n");
+}
+
+void allocate_result_matrix(){
+    result_matrix = malloc( sizeof(int*) * image_height);
+
+    int row;
+    for(row=0; row<image_height; row++)
+        result_matrix[row] = malloc( sizeof(int) * image_width);
+
+    printf("Result matrix allocated\n");
 }
 
 
@@ -116,7 +153,7 @@ void load_filter_matrix(FILE * filter_file){
 
         int column;
         for(column=1; column<filter_size; column++){
-            pixel_value = atoi( strtok(NULL, " ") );
+            pixel_value = atof( strtok(NULL, " ") );
             filter_matrix[row][column] = pixel_value;
         }
     }
@@ -145,7 +182,20 @@ void print_filter_matrix(){
 
     for(row=0; row<filter_size; row++){
         for(column=0; column<filter_size; column++){
-            printf("%d ", filter_matrix[row][column]);
+            printf("%f ", filter_matrix[row][column]);
+        }
+        printf("\n");
+    }
+}
+
+void print_result_matrix(){
+    int row, column;
+
+    printf("Printing result matrix: \n");
+
+    for(row=0; row<image_height; row++){
+        for(column=0; column<image_width; column++){
+            printf("%d ", result_matrix[row][column]);
         }
         printf("\n");
     }
@@ -194,9 +244,19 @@ int main(int argc, char *argv[]) {
 
     load_image_matrix(image_file);
     load_filter_matrix(filter_file);
+    allocate_result_matrix();
+
+    int row, column;
+
+    for(row=0; row<image_height; row++){
+        for(column=0; column<image_width; column++){
+            result_matrix[row][column] = s(row,column);
+        }
+    }
 
     print_image_matrix();
     print_filter_matrix();
+    print_result_matrix();
 
     fclose(image_file);
     fclose(filter_file);

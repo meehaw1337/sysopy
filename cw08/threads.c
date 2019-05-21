@@ -62,11 +62,11 @@ void allocate_image_matrix(){
 }
 
 void allocate_filter_matrix(){
-    filter_matrix = malloc( sizeof(int*) * filter_size);
+    filter_matrix = malloc( sizeof(double*) * filter_size);
 
     int row;
     for(row=0; row<filter_size; row++)
-        filter_matrix[row] = malloc( sizeof(int) * filter_size);
+        filter_matrix[row] = malloc( sizeof(double) * filter_size);
 
     printf("Filter matrix allocated\n");
 }
@@ -75,8 +75,9 @@ void allocate_result_matrix(){
     result_matrix = malloc( sizeof(int*) * image_height);
 
     int row;
-    for(row=0; row<image_height; row++)
+    for(row=0; row<image_height; row++){
         result_matrix[row] = malloc( sizeof(int) * image_width);
+    }
 
     printf("Result matrix allocated\n");
 }
@@ -131,8 +132,6 @@ void load_image_matrix(FILE * image_file){
         }
     }
 
-    free(input_buffer);
-
     printf("Image data loaded succesfully\n");
 }
 
@@ -160,11 +159,10 @@ void load_filter_matrix(FILE * filter_file){
     int row, column;
     for(row=0; row<filter_size; row++){
         for(column=0; column<filter_size; column++){
-            filter_matrix[row][column] = atoi( strtok(NULL, delims));
+            filter_matrix[row][column] = atof( strtok(NULL, delims));
         }
     }
 
-    free(input_buffer);
 
     printf("Filter data loaded succesfully\n");
 }
@@ -347,6 +345,7 @@ int main(int argc, char *argv[]) {
     load_filter_matrix(filter_file);
     allocate_result_matrix();
 
+
     struct timespec rt_start, rt_end;
 
     clock_gettime(CLOCK_REALTIME, &rt_start);
@@ -377,6 +376,7 @@ int main(int argc, char *argv[]) {
     //print_image_matrix();
     //print_filter_matrix();
     //print_result_matrix();
+        
 
     fclose(image_file);
     fclose(filter_file);

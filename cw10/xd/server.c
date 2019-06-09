@@ -92,7 +92,7 @@ void handle_event(struct epoll_event *event)
 
   fd = event->data.fd;
   bytes_read = read(fd, &msg, sizeof(message));
-  if(bytes_read > 0)
+  if(bytes_read == sizeof(message))
   {
     switch(msg.type)
     {
@@ -223,7 +223,7 @@ void *listener_thread(void *arg)
     epoll_ctl(epoll_fd, EPOLL_CTL_ADD, inet_fd, &ev_inet);
 
     struct timeval tv;
-  tv.tv_sec = 2;
+  tv.tv_sec = 0;
   tv.tv_usec = 100;
 
 
@@ -269,7 +269,7 @@ void *listener_thread(void *arg)
             cli_fd = accept(inet_fd, (struct sockaddr*) &inet_cli, &addr_len);
             if(cli_fd >= 0)
             {
-                //setsockopt(cli_fd, SOL_SOCKET, SO_RCVTIMEO, (char*) &tv, sizeof(tv));
+                setsockopt(cli_fd, SOL_SOCKET, SO_RCVTIMEO, (char*) &tv, sizeof(tv));
                 //int flags = fcntl(cli_fd, F_GETFL);
                 //fcntl(cli_fd, F_SETFL, flags | O_NONBLOCK);
                 struct epoll_event event;
@@ -289,7 +289,7 @@ void *listener_thread(void *arg)
             {
                 //int flags = fcntl(cli_fd, F_GETFL);
                 //fcntl(cli_fd, F_SETFL, flags | O_NONBLOCK);
-                //setsockopt(cli_fd, SOL_SOCKET, SO_RCVTIMEO, (char*) &tv, sizeof(tv));
+                setsockopt(cli_fd, SOL_SOCKET, SO_RCVTIMEO, (char*) &tv, sizeof(tv));
                 struct epoll_event event;
                 event.events = EPOLLIN | EPOLLOUT;
                 event.data.fd = cli_fd;

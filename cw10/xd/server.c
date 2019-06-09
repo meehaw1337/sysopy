@@ -211,15 +211,26 @@ void *listener_thread(void *arg)
     exit(1);
   }
 
+    struct epoll_event ev_unix;
+       ev_unix.events = EPOLLIN;
+       ev_unix.data.fd = unix_fd;
+    epoll_ctl(epoll_fd, EPOLL_CTL_ADD, unix_fd, &ev_unix);
+
+    struct epoll_event ev_inet;
+     ev_inet.events = EPOLLIN;
+     ev_inet.data.fd = inet_fd;
+
+    epoll_ctl(epoll_fd, EPOLL_CTL_ADD, inet_fd, &ev_inet);
+
     struct timeval tv;
-  tv.tv_sec = 0;
+  tv.tv_sec = 2;
   tv.tv_usec = 100;
 
 
 
   while(RUNNING){
 
-    cli_fd = accept(inet_fd, (struct sockaddr*) &inet_cli, &addr_len);
+    /*cli_fd = accept(inet_fd, (struct sockaddr*) &inet_cli, &addr_len);
     if(cli_fd >= 0)
     {
         setsockopt(cli_fd, SOL_SOCKET, SO_RCVTIMEO, (char*) &tv, sizeof(tv));
@@ -247,14 +258,53 @@ void *listener_thread(void *arg)
          printf("[EPOLL] ADD FAILURE\n");
          exit(1);
       }
-    }
+    }*/
 
 
 
     event_count = epoll_wait(epoll_fd, events, MAX_EPOLL_EVENTS, 0);
 
-    for(int i = 0; i < event_count; i++)
-      handle_event(&events[i]);
+    for(int i = 0; i < event_count; i++) {
+        if(events[i].data.fd == inet_fd) {
+            cli_fd = accept(inet_fd, (struct sockaddr*) &inet_cli, &addr_len);
+            if(cli_fd >= 0)
+            {
+                //setsockopt(cli_fd, SOL_SOCKET, SO_RCVTIMEO, (char*) &tv, sizeof(tv));
+                //int flags = fcntl(cli_fd, F_GETFL);
+                //fcntl(cli_fd, F_SETFL, flags | O_NONBLOCK);
+                struct epoll_event event;
+                event.events = EPOLLIN | EPOLLOUT;
+                event.data.fd = cli_fd;
+
+                if(epoll_ctl(epoll_fd, EPOLL_CTL_ADD, cli_fd, &event) < 0)
+                {
+                    printf("[EPOLL] ADD FAILURE\n");
+                    exit(1);
+                }
+            }
+        }
+        else if(events[i].data.fd == unix_fd) {
+            cli_fd = accept(unix_fd, (struct sockaddr*) &unix_cli, &addr_len);
+            if(cli_fd >= 0)
+            {
+                //int flags = fcntl(cli_fd, F_GETFL);
+                //fcntl(cli_fd, F_SETFL, flags | O_NONBLOCK);
+                //setsockopt(cli_fd, SOL_SOCKET, SO_RCVTIMEO, (char*) &tv, sizeof(tv));
+                struct epoll_event event;
+                event.events = EPOLLIN | EPOLLOUT;
+                event.data.fd = cli_fd;
+
+                if(epoll_ctl(epoll_fd, EPOLL_CTL_ADD, cli_fd, &event) < 0)
+                {
+                    printf("[EPOLL] ADD FAILURE\n");
+                    exit(1);
+                }
+            }
+        }
+        else
+            handle_event(&events[i]);
+
+    }
 
     
   }

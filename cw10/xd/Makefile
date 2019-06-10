@@ -1,4 +1,4 @@
-CC = gcc -Wall -std=gnu99
+CC = gcc -Wall
 
 all: server client
 

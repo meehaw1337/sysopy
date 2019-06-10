@@ -1,7 +1,6 @@
-
 CC = gcc -Wall
 all:
-	$(CC) mojcoaster.c -o mojcoaster -lpthread -lm
+	$(CC) main.c -o main -lpthread -lm
 
 clean:
-	rm -rf mojcoaster
+	rm -rf main
